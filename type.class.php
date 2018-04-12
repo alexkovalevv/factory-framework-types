@@ -174,10 +174,6 @@
 			 */
 			public function register()
 			{
-				if( !$this->useit() ) {
-					return;
-				}
-
 				// type's titles
 				$singular_name = $this->plural_title
 					? $this->plural_title
@@ -232,7 +228,7 @@
 				}
 
 				if( !$this->scripts->isEmpty('bootstrap') || !$this->styles->isEmpty('bootstrap') ) {
-					add_action('factory_bootstrap_enqueue_scripts_' . $this->plugin->getPluginName(), array(
+					add_action('wbcr_factory_000_bootstrap_enqueue_scripts_' . $this->plugin->getPluginName(), array(
 						$this,
 						'actionAdminBootstrapScripts'
 					));
@@ -541,10 +537,5 @@
 			}
 
 			public abstract function configure();
-
-			public function useit()
-			{
-				return true;
-			}
 		}
 	}

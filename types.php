@@ -16,8 +16,8 @@
 
 	if( !class_exists('Wbcr_FactoryTypes000') ) {
 
-		add_action('factory_000_plugin_activation', 'Wbcr_FactoryTypes000::activationHook');
-		add_action('factory_000_plugin_deactivation', 'Wbcr_FactoryTypes000::deactivationHook');
+		add_action('wbcr_factory_000_plugin_activation', 'Wbcr_FactoryTypes000::activationHook');
+		add_action('wbcr_factory_000_plugin_deactivation', 'Wbcr_FactoryTypes000::deactivationHook');
 
 		/**
 		 * A base class to manage types.
@@ -61,12 +61,12 @@
 			 * A plugin activation hook.
 			 *
 			 * @since 1.0.0
-			 * @param Factory000_Plugin
+			 * @param Wbcr_Factory000_Plugin $plugin
 			 * @return void
 			 */
-			public static function activationHook($plugin)
+			public static function activationHook(Wbcr_Factory000_Plugin $plugin)
 			{
-				$plugin_name = $plugin->pluginName;
+				$plugin_name = $plugin->getPluginName();
 
 				// Sets capabilities for types.
 				if( isset(self::$types[$plugin_name]) ) {
@@ -96,13 +96,13 @@
 			 * A plugin deactivation hook.
 			 *
 			 * @since 1.0.0
-			 * @param Factory000_Plugin
+			 * @param Wbcr_Factory000_Plugin $plugin
 			 * @return void
 			 */
-			public static function deactivationHook($plugin)
+			public static function deactivationHook(Wbcr_Factory000_Plugin $plugin)
 			{
 
-				$plugin_name = $plugin->pluginName;
+				$plugin_name = $plugin->getPluginName();
 				global $wp_roles;
 				$all_roles = $wp_roles->roles;
 
