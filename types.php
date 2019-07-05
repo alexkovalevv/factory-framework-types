@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Wbcr_FactoryTypes000' ) ) {
 
-	add_action( 'wbcr/factory/plugin_activation', 'Wbcr_FactoryTypes000::activationHook' );
-	add_action( 'wbcr/factory/plugin_deactivation', 'Wbcr_FactoryTypes000::deactivationHook' );
+	add_action( 'wbcr/factory/before_plugin_activation', 'Wbcr_FactoryTypes000::activationHook' );
+	add_action( 'wbcr/factory/before_plugin_deactivation', 'Wbcr_FactoryTypes000::deactivationHook' );
 
 	/**
 	 * A base class to manage types.
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Wbcr_FactoryTypes000' ) ) {
 		 *
 		 * @return void
 		 */
-		public static function activationHook( Wbcr_Factory000_Plugin $plugin ) {
+		public static function activationHook( $plugin ) {
 			$plugin_name = $plugin->getPluginName();
 
 			// Sets capabilities for types.
