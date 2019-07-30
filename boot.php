@@ -18,7 +18,7 @@ if ( defined( 'FACTORY_TYPES_000_LOADED' ) ) {
 	return;
 }
 
-define( 'FACTORY_TYPES_000_VERSION', '4.0.7' );
+define( 'FACTORY_TYPES_000_VERSION', '4.0.8' );
 define( 'FACTORY_TYPES_000_LOADED', true );
 
 define( 'FACTORY_TYPES_000_DIR', dirname( __FILE__ ) );
